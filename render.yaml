@@ -1,0 +1,32 @@
+services:
+  - type: web
+    name: n8n-supabase
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: |
+      echo "Attente de la base Supabase pendant 20 secondes..."
+      sleep 20
+      n8n
+    envVars:
+      - key: DB_TYPE
+        value: postgres
+      - key: DB_POSTGRESDB_HOST
+        value: aws-1-eu-central-1.pooler.supabase.com
+      - key: DB_POSTGRESDB_PORT
+        value: 5432
+      - key: DB_POSTGRESDB_DATABASE
+        value: postgres
+      - key: DB_POSTGRESDB_USER
+        value: postgres.ebzy1ynfkcububyjrbts
+      - key: DB_POSTGRESDB_PASSWORD
+        value: qwv7s6cuoVGGNkV9
+      - key: DB_POSTGRESDB_SSL
+        value: true
+      - key: DB_POSTGRESDB_SCHEMA
+        value: public
+      - key: N8N_ENCRYPTION_KEY
+        value: wKCIn2ptid95J2TJT1oGo4/xEsmbHT0hLhxXy00zFbg=
+      - key: N8N_LOG_LEVEL
+        value: debug
+
